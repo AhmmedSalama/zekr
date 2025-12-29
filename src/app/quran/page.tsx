@@ -1,22 +1,39 @@
 import QuranPlayer from "../components/QuranPlayer"
-import type { Metadata } from "next"
+import { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: "القرآن الكريم | تلاوة واستماع – ذِكْر",
+  title: "القرآن الكريم | تلاوة واستماع مباشر لأشهر القراء – ذِكْر",
   description:
-    "استمع إلى تلاوة القرآن الكريم بصوت قرّاء مميزين...",
+    "استمع إلى تلاوة القرآن الكريم بصوت قرّاء مميزين، تلاوات خاشعة بجودة عالية مع إمكانية اختيار القارئ والسورة المفضلة لديك عبر منصة ذِكْر.",
+  keywords: [
+    "القرآن الكريم استماع", "تلاوة القرآن", "تحميل القرآن", "مشاري العفاسي", 
+    "عبد الباسط عبد الصمد", "المنشاوي", "القرآن الكريم صوت", "إذاعة القرآن", 
+    "تلاوات خاشعة", "سمعنا قرآن"
+  ],
+  alternates: {
+    canonical: '/quran',
+  },
   openGraph: {
-    title: "القرآن الكريم | تلاوة واستماع",
-    description: "تلاوة عطرة لآيات القرآن الكريم...",
-    url: "https://zekr.com/quran",
+    title: "القرآن الكريم | تلاوة واستماع خاشع – منصة ذِكْر",
+    description: "تلاوات عطرة ومميزة لآيات القرآن الكريم بأصوات أشهر القراء، استمع الآن بجودة عالية.",
+    url: "https://zekr-beta.vercel.app/quran",
     siteName: "ذِكْر",
+    images: [
+      {
+        url: "/Heroshape.webp",
+        width: 1200,
+        height: 630,
+        alt: "تلاوة واستماع القرآن الكريم - منصة ذِكْر",
+      },
+    ],
     locale: "ar_EG",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "القرآن الكريم | تلاوة واستماع",
-    description: "استمع لتلاوة القرآن الكريم...",
+    title: "القرآن الكريم | تلاوة واستماع – ذِكْر",
+    description: "استمع لتلاوة القرآن الكريم بأصوات مميزة وجودة عالية عبر منصة ذِكْر.",
+    images: ["/Heroshape.webp"],
   },
 };
 

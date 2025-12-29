@@ -102,9 +102,9 @@ export default function DailyContent() {
         <div className="p-6 md:p-10 max-h-[320px] w-full overflow-y-auto text-center break-words ">
           {activeTab === 'hadith' && hadith && (
             <>
-              <h3 className="text-xl md:text-2xl mb-4 leading-[44.8px] font-normal">
+              <h1 className="text-xl md:text-2xl mb-4 leading-[44.8px] font-normal">
                 قال رسول الله ﷺ:
-              </h3>
+              </h1>
 
               <p className="text-lg md:text-2xl mb-4 leading-relaxed font-normal text-[#F7DBA3]">
                 &quot;{hadith.text}&quot;

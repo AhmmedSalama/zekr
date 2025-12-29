@@ -3,25 +3,13 @@ import LessonsPlayer from "../components/LessonsPlayer"
 
 // Metadata 
 export const metadata: Metadata = {
+  // ملاحظة: سيتم استخدام metadataBase المعرفة في layout.tsx تلقائياً
   title: 'دروس ومحاضرات إسلامية | نتعلم ونتدبر',
-  description: 'مجموعة مميزة من الدروس والمحاضرات الإسلامية من علماء وشيوخ موثوقين - دروس في العقيدة، الفقه، التفسير، الحديث والسيرة النبوية لنتعلم ونتدبر ديننا',
+  description: 'مجموعة مميزة من الدروس والمحاضرات الإسلامية من علماء وشيوخ موثوقين - دروس في العقيدة، الفقه، التفسير، الحديث والسيرة النبوية لنتعلم ونتدبر ديننا.',
   keywords: [
-    'دروس إسلامية',
-    'محاضرات إسلامية',
-    'دروس دينية',
-    'علماء الدين',
-    'شيوخ ثقات',
-    'دروس العقيدة',
-    'دروس الفقه',
-    'تفسير القرآن',
-    'شرح الحديث',
-    'السيرة النبوية',
-    'محاضرات دينية',
-    'دروس صوتية',
-    'تعلم الدين',
-    'الثقافة الإسلامية',
-    'دروس وعظ',
-    'نتعلم ونتدبر'
+    'دروس إسلامية', 'محاضرات إسلامية', 'دروس دينية', 'علماء الدين', 'شيوخ ثقات',
+    'دروس العقيدة', 'دروس الفقه', 'تفسير القرآن', 'شرح الحديث', 'السيرة النبوية',
+    'محاضرات دينية', 'دروس صوتية', 'تعلم الدين', 'الثقافة الإسلامية', 'دروس وعظ', 'نتعلم ونتدبر'
   ],
   authors: [{ name: 'ذِكر - منصة المحتوى الإسلامي' }],
   creator: 'ذِكر - منصة المحتوى الإسلامي',
@@ -38,20 +26,29 @@ export const metadata: Metadata = {
     },
   },
   alternates: {
-    canonical: 'https://zekr.com/lessons',
+    canonical: '/lessons', 
   },
   openGraph: {
     title: 'دروس ومحاضرات إسلامية | نتعلم ونتدبر',
-    description: 'مجموعة مميزة من الدروس والمحاضرات الإسلامية من علماء وشيوخ موثوقين لنتعلم ونتدبر ديننا',
-    url: 'https://zekr.com/lessons',
+    description: 'مجموعة مميزة من الدروس والمحاضرات الإسلامية من علماء وشيوخ موثوقين لنتعلم ونتدبر ديننا.',
+    url: '/lessons',
     siteName: 'ذِكر - منصة المحتوى الإسلامي',
+    images: [
+      {
+        url: '/Heroshape.webp', 
+        width: 1200,
+        height: 630,
+        alt: 'دروس ومحاضرات إسلامية - منصة ذكر',
+      },
+    ],
     locale: 'ar_EG',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
     title: 'دروس ومحاضرات إسلامية | نتعلم ونتدبر',
-    description: 'مجموعة مميزة من الدروس والمحاضرات الإسلامية من علماء وشيوخ موثوقين',
+    description: 'مجموعة مميزة من الدروس والمحاضرات الإسلامية من علماء وشيوخ موثوقين لنتعلم ونتدبر ديننا.',
+    images: ['/Heroshape.webp'],
   },
   category: 'Islamic Education',
 }
@@ -68,7 +65,7 @@ export default function Lessons() {
             '@type': 'WebPage',
             name: 'دروس ومحاضرات إسلامية',
             description: 'مجموعة مميزة من الدروس والمحاضرات الإسلامية من علماء وشيوخ موثوقين',
-            url: 'https://zekr.com/lessons',
+            url: 'https://zekr-beta.vercel.app/lessons',
             inLanguage: 'ar',
             about: {
               '@type': 'Thing',
@@ -77,7 +74,7 @@ export default function Lessons() {
             publisher: {
               '@type': 'Organization',
               name: 'ذِكر - منصة المحتوى الإسلامي',
-              url: 'https://zekr.com'
+              url: 'https://zekr-beta.vercel.app/'
             },
             educationalUse: 'Religious Education',
             learningResourceType: 'Lecture',

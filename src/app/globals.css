@@ -5,30 +5,21 @@
   --text: #ffffff;
   --nav-bg: transparent;
   --link-active: #E1C987;
-  --main-color:#E1C987;
-  --p-color:#99a1af;
-  --i-color:#E1C987;
-  --contact-color:#99a1af;
-  --subscribe-color:#00133F40;
+  --main-color: #E1C987;
+  --p-color: #99a1af;
+  --i-color: #E1C987;
+  --contact-color: #99a1af;
+  --subscribe-color: #00133F40;
 }
-
-/* .dark {
-  --background: #0A102A;
-  --text: #ffffff;
-  --nav-bg: transparent;
-  --link-active: #E1C987;
-  --main-color:#E1C987;
-  --p-color:#99a1af;
-  --i-color:#E1C987;
-  --contact-color:#99a1af;
-  --subscribe-color:#00133F40;
-} */
 
 body {
   background: var(--background);
   color: var(--text);
-  font-family: Almarai, sans-serif;
+  /* تحسين الخطوط الاحتياطية لتقليل الـ CLS */
+  font-family: Almarai, system-ui, -apple-system, sans-serif;
   background-image: url('/Background2.webp');
+  background-attachment: fixed;
+  background-size: cover;
 }
 
 .active {
@@ -37,13 +28,13 @@ body {
 
 /* ========== Scrollbar ========== */
 
-/* Firefox   */
+/* Firefox */
 * {
   scrollbar-width: thin;
   scrollbar-color: #E7D7A0 transparent;
 }
 
-/* Chrome, Edge, Safari -   */
+/* Chrome, Edge, Safari */
 *::-webkit-scrollbar {
   width: 8px;
   height: 8px;
@@ -62,7 +53,7 @@ body {
   background: #d6c98d;
 }
 
-/* Scrollbar body   */
+/* Scrollbar body */
 body::-webkit-scrollbar {
   width: 10px;
 }
@@ -75,10 +66,6 @@ body::-webkit-scrollbar-thumb {
   background: #E7D7A0;
   border-radius: 10px;
   border: 2px solid #0A102A;
-}
-
-body::-webkit-scrollbar-thumb:hover {
-  background: #d6c98d;
 }
 
 /*custom scrollbar */
@@ -100,52 +87,56 @@ body::-webkit-scrollbar-thumb:hover {
   border-radius: 10px;
 }
 
-.custom-scrollbar::-webkit-scrollbar-thumb:hover {
-  background: #d6c98d;
-}
-
-/* ========================================= */
+/* ========== Fonts Performance Optimization ========== */
+/* تم إضافة font-display: swap لحل مشكلة تأخير ظهور النص */
 
 @font-face {
   font-family: Almarai;
-  src: url("/fonts/Almarai-Light.ttf");
-  weight: 300;
-}
-
-@font-face {
-  font-family: Almarai;
-  src: url("/fonts/Almarai-Regular.ttf");
-  weight: 400;
+  src: url("/fonts/Almarai-Light.ttf") format("truetype");
+  font-weight: 300;
+  font-display: swap;
 }
 
 @font-face {
   font-family: Almarai;
-  src: url("/fonts/Almarai-Bold.ttf");
-  weight: 700;
+  src: url("/fonts/Almarai-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-display: swap;
 }
 
 @font-face {
   font-family: Almarai;
-  src: url("/fonts/Almarai-ExtraBold.ttf");
-  weight: 800;
+  src: url("/fonts/Almarai-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: Almarai;
+  src: url("/fonts/Almarai-ExtraBold.ttf") format("truetype");
+  font-weight: 800;
+  font-display: swap;
 }
 
 @font-face {
   font-family: Tajawal;
-  src: url("/fonts/Tajawal-Regular.ttf");
-  weight: 400;
+  src: url("/fonts/Tajawal-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-display: swap;
 }
 
 @font-face {
   font-family: Tajawal;
-  src: url("/fonts/Tajawal-Bold.ttf");
-  weight: 700;
+  src: url("/fonts/Tajawal-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-display: swap;
 }
 
 @font-face {
   font-family: Tajawal;
-  src: url("/fonts/Tajawal-ExtraBold.ttf");
-  weight: 800;
+  src: url("/fonts/Tajawal-ExtraBold.ttf") format("truetype");
+  font-weight: 800;
+  font-display: swap;
 }
 
 /* ========== Quran Range Slider ========== */
@@ -160,14 +151,12 @@ body::-webkit-scrollbar-thumb:hover {
   outline: none;
 }
 
-/* track مع جزء ممتلئ في كروم/إيدج */
 .quran-range::-webkit-slider-runnable-track {
   height: 6px;
   border-radius: 999px;
   background: linear-gradient(to left, #E7D7A0 var(--progress, 0%), #101B38 0%);
 }
 
-/* الدائرة (thumb) في كروم/إيدج */
 .quran-range::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
@@ -180,21 +169,19 @@ body::-webkit-scrollbar-thumb:hover {
   margin-top: -3px;
 }
 
-/* Firefox track */
+/* Firefox support */
 .quran-range::-moz-range-track {
   height: 6px;
   border-radius: 999px;
   background: #101B38;
 }
 
-/* Firefox filled part */
 .quran-range::-moz-range-progress {
   height: 6px;
   border-radius: 999px;
   background: #E7D7A0;
 }
 
-/* Firefox thumb */
 .quran-range::-moz-range-thumb {
   width: 12px;
   height: 12px;

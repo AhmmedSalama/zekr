@@ -1,51 +1,52 @@
 import QuranHeartTracker from "../components/QuranHeartTracker"
 import type { Metadata } from "next"
 
+import { Metadata } from 'next'
+
 export const metadata: Metadata = {
-  title: "متابعة ختم القرآن الكريم | ذِكْر",
+  title: "متابعة ختم القرآن الكريم - القلب القرآني | ذِكْر",
   description:
-    "تتبع تقدمك في ختم القرآن الكريم بطريقة تفاعلية مميزة. حدد السور التي أتممت قراءتها وحمّل صورة توضح إنجازك. قلب قرآني يوثق رحلتك مع كتاب الله.",
+    "تتبع تقدمك في ختم القرآن الكريم بطريقة تفاعلية مميزة. حدد السور التي أتممت قراءتها، ووثق رحلتك مع كتاب الله، وحمّل صورة إنجازك (القلب القرآني) لمشاركتها مع الآخرين.",
   keywords: [
-    "ختم القرآن",
-    "متابعة القرآن",
-    "قراءة القرآن",
-    "تتبع القرآن",
-    "قلب قرآني",
-    "114 سورة",
-    "تلاوة القرآن",
-    "ذكر"
+    "ختم القرآن", "متابعة القرآن الكريم", "تتبع قراءة القرآن", "القلب القرآني", 
+    "جدول ختم القرآن", "تحدي ختم القرآن", "تحميل صورة الختمة", "114 سورة", 
+    "متابعة الورد اليومي", "ذِكْر"
   ],
+  alternates: {
+    canonical: '/QuranHeart', 
+  },
   openGraph: {
-    title: "متابعة ختم القرآن الكريم | ذِكْر",
-    description: "تتبع تقدمك في ختم القرآن الكريم بطريقة تفاعلية. قلب قرآني يوثق رحلتك مع كتاب الله.",
-    url: "https://zekr-beta.vercel.app/QuranHeart",
+    title: "متابعة ختم القرآن الكريم | القلب القرآني التفاعلي – ذِكْر",
+    description: "وثق رحلتك مع كتاب الله بطريقة بصرية مميزة. تتبع السور التي قرأتها وحمّل صورة إنجازك الآن.",
+    url: '/QuranHeart',
     siteName: "ذِكْر",
-    locale: "ar_EG",
-    type: "website",
     images: [
       {
-        url: "/quran-heart-preview.jpg",
+        url: "/quran-heart-preview.jpg", 
         width: 1200,
         height: 630,
-        alt: "قلب قرآني - متابعة ختم القرآن الكريم",
+        alt: "واجهة القلب القرآني لمتابعة ختم القرآن الكريم",
       },
     ],
+    locale: "ar_EG",
+    type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "متابعة ختم القرآن الكريم | ذِكْر",
-    description: "تتبع تقدمك في ختم القرآن الكريم بطريقة تفاعلية مميزة",
+    title: "متابعة ختم القرآن الكريم - القلب القرآني | ذِكْر",
+    description: "تتبع تقدمك في ختم القرآن الكريم بطريقة تفاعلية بصرية وحمّل صورة إنجازك.",
     images: ["/quran-heart-preview.jpg"],
-  },
-  alternates: {
-    canonical: "https://zekr-beta.vercel.app/QuranHeart",
   },
   robots: {
     index: true,
     follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-image-preview': 'large',
+    },
   },
-}
-
+};
 export default function QuranHeart() {
   return (
     <div className="max-w-7xl mx-auto px-4">

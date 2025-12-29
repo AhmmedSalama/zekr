@@ -844,7 +844,7 @@ function LessonsPlayer() {
 
                   <button onClick={toggleLoop}
                     className={`transition-opacity ${loop ? "opacity-100" : "opacity-60 hover:opacity-100"}`}>
-                    <Image src="/repeat.png" alt="repeat" width={24} height={24} />
+                    <Image src="/repeat.webp" alt="repeat" width={24} height={24} />
                   </button>
                 </div>
               </div>

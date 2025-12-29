@@ -1,0 +1,23 @@
+{
+  "name": "ذِكر - منصة المحتوى الإسلامي",
+  "short_name": "ذِكر",
+  "description": "منصة إسلامية شاملة للقرآن الكريم والأذكار والدروس الدينية",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0A102A",
+  "theme_color": "#0A102A",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "/Logo.webp",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "/Heroshape.webp",
+      "type": "image/webp",
+      "sizes": "512x512",
+      "purpose": "any maskable"
+    }
+  ]
+}

@@ -138,34 +138,44 @@ function Footer() {
           </div>
           
           {/* قسم تحميل التطبيق */}
-          <div>
-            <h1 className='font-bold text-[24px] leading-[33.px] mb-4 text-[var(--main-color)]'>حمل التطبيق</h1>
-            <p className='text-[var(--p-color)] text-xl font-normal'>تجربة متكاملة بين يديك.</p>
+<section aria-labelledby="download-app-heading">
+            <h2 id="download-app-heading" className='font-bold text-[24px] leading-[33px] mb-4 text-[var(--main-color)]'>
+              حمل تطبيق ذكر
+            </h2>
+            <p className='text-[var(--p-color)] text-xl font-normal'>
+              تجربة إيمانية متكاملة بين يديك، حمل التطبيق الآن.
+            </p>
+            
             <div className='flex flex-col gap-5 mt-5'>
+              {/* Apple Store Link */}
               <a 
-                href='#' 
-                className=' bg-[var(--subscribe-color)] border-[#242c4a] border rounded-lg gap-4 py-4 px-4 flex justify-start items-center w-[300px] md:w-[220px] lg:w-[350px]'
-                aria-label="تحميل التطبيق من App Store"
+                href='https://apps.apple.com/...' 
+                className='bg-[var(--subscribe-color)] border-[#242c4a] border rounded-lg gap-4 py-4 px-4 flex justify-start items-center w-[300px] md:w-[220px] lg:w-[350px] '
+                aria-label="تحميل تطبيق ذكر من متجر آبل - App Store"
+                title="تحميل تطبيق ذكر من متجر آبل"
               >
-                <Apple size={40} className="text-[var(--i-color)]" />
-                <div>
-                  <h3 className=' font-normal text-[#B7B7B7]  text-[14px]'>Download on the</h3>
-                  <h2 className='font-normal text-[#FAFAFA] text-[14px]'>App Store</h2>
+                <Apple size={40} className="text-[var(--i-color)]" aria-hidden="true" />
+                <div className="flex flex-col">
+                  <span className='font-normal text-[#B7B7B7] text-[12px] leading-tight'>Download on the</span>
+                  <span className='font-bold text-[#FAFAFA] text-[18px] leading-tight'>App Store</span>
                 </div>
               </a>
+
+              {/* Google Play Link */}
               <a 
-                href='#' 
-                className=' bg-[var(--subscribe-color)] border-[#242c4a] border rounded-lg gap-4 py-4 px-4 flex justify-start items-center w-[300px] md:w-[220px] lg:w-[350px]'
-                aria-label="تحميل التطبيق من Google Play"
+                href='https://play.google.com/...' 
+                className='bg-[var(--subscribe-color)] border-[#242c4a] border rounded-lg gap-4 py-4 px-4 flex justify-start items-center w-[300px] md:w-[220px] lg:w-[350px] '
+                aria-label="تحميل تطبيق ذكر من متجر جوجل بلاي - Google Play"
+                title="تحميل تطبيق ذكر من متجر جوجل بلاي"
               >
-                <Smartphone size={40} className="text-[var(--i-color)]" />
-                <div>
-                  <h3 className='font-normal text-[#B7B7B7]  text-[14px]'>Download on the</h3>
-                  <h2 className='font-normal text-[#FAFAFA] text-[14px]'>Google Play</h2>
+                <Smartphone size={40} className="text-[var(--i-color)]" aria-hidden="true" />
+                <div className="flex flex-col">
+                  <span className='font-normal text-[#B7B7B7] text-[12px] leading-tight'>Download on the</span>
+                  <span className='font-bold text-[#FAFAFA] text-[18px] leading-tight'>Google Play</span>
                 </div>
               </a>
             </div>
-          </div>
+          </section>
         </div>
 
         {/* فاصل سفلي */}

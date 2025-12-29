@@ -1,35 +1,36 @@
 import type { Metadata } from "next";
 
+import { Metadata } from 'next'
+
 export const metadata: Metadata = {
-  title: "ذِكْر | منصة القرآن والأذكار والأدعية",
+  metadataBase: new URL('https://zekr-beta.vercel.app'), // استبدله برابط موقعك النهائي لاحقاً
+  title: {
+    default: "ذِكْر | منصة القرآن والأذكار والأدعية",
+    template: "%s | ذِكْر"
+  },
   description:
-    "منصة ذِكْر تساعدك على الاستماع للقرآن الكريم، تعلّم الحديث الشريف، قراءة الأذكار اليومية، والتقرب إلى الله في أي وقت.",
+    "منصة ذِكْر تساعدك على الاستماع للقرآن الكريم، تعلّم الحديث الشريف، قراءة الأذكار اليومية، والتقرب إلى الله في أي وقت وبكل سهولة.",
   keywords: [
-    "ذكر",
-    "القرآن الكريم",
-    "أذكار",
-    "أدعية",
-    "الحديث الشريف",
-    "تلاوة القرآن",
-    "مشاري العفاسي",
-    "إسلاميات",
-    "موقع ديني"
+    "ذكر", "القرآن الكريم", "أذكار الصباح والمساء", "أدعية نبوية", "الحديث الشريف", 
+    "تلاوة القرآن", "مشاري العفاسي", "إسلاميات", "موقع ديني", "حصن المسلم"
   ],
-  authors: [{ name: "منصة ذِكْر" }],
+  authors: [{ name: "منصة ذِكْر", url: "https://zekr-beta.vercel.app" }],
   creator: "منصة ذِكْر",
   publisher: "منصة ذِكْر",
+  alternates: {
+    canonical: '/',
+  },
   openGraph: {
     title: "ذِكْر | يُحيي القلوب ويقوّي الإيمان",
-    description:
-      "استمع إلى القرآن، تعلّم الحديث، واذكر الله أينما كنت عبر منصة ذِكْر.",
-    url: "https://zekr.com",
+    description: "استمع إلى القرآن، تعلّم الحديث، واذكر الله أينما كنت عبر منصة ذِكْر المتكاملة.",
+    url: "https://zekr-beta.vercel.app",
     siteName: "منصة ذِكْر",
     images: [
       {
         url: "/Heroshape.webp",
         width: 1200,
         height: 630,
-        alt: "منصة ذِكْر - القرآن والأذكار",
+        alt: "شعار منصة ذِكْر - القرآن والأذكار",
       },
     ],
     locale: "ar_EG",
@@ -38,8 +39,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "ذِكْر | منصة القرآن والأذكار",
-    description:
-      "منصة إسلامية للاستماع للقرآن الكريم وقراءة الأذكار والأدعية اليومية.",
+    description: "منصة إسلامية للاستماع للقرآن الكريم وقراءة الأذكار والأدعية اليومية بشكل مبسط.",
     images: ["/Heroshape.webp"],
   },
   robots: {
@@ -48,9 +48,14 @@ export const metadata: Metadata = {
     googleBot: {
       index: true,
       follow: true,
-      "max-image-preview": "large",
-      "max-snippet": -1,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
     },
+  },
+  icons: {
+    icon: '/icon.png', 
+    apple: '/apple-icon.png',
   },
 };
 
@@ -161,8 +166,10 @@ export default function Home() {
           <Image 
             src="/moss.webp" 
             alt="المصحف الشريف" 
+            priority
             width={400} 
             height={400} 
+            fetchPriority="high"
             className=""
           />
         </div>
