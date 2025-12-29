@@ -91,7 +91,7 @@ export default function Home() {
           <h2 className="mb-5 text-xl md:text-[32px] font-normal text-[#FFFEEE]" >&quot;جوهر الإسلام وروحه في خمسة أركان&quot;</h2>
           <h3 className="text-xl md:text-[24px] font-normal text-[#FFFEEE]" >هي الأساس الذي يبني عليه المسلم إيمانه، فهي تجمع بين العقيدة، العبادة، والأخلاق، لترشد الإنسان إلى طريق الهداية والتقوى.</h3>
         </div>
-        <div className="flex items-center flex-wrap justify-center gap-6 text-white">
+        <div className="flex items-center flex-wrap justify-center text-white">
             <div className="flex flex-col gap-[24px] items-center m-2 h-[327px] w-[200px]">
             <Image 
             src="/tawhed.webp" 
