@@ -1,9 +1,6 @@
 import type { Metadata } from 'next'
 import AzkarContent from "../components/AzkarContent"
 
-// Metadata 
-import { Metadata } from 'next'
-
 export const metadata: Metadata = {
 
   metadataBase: new URL('https://zekr-beta.vercel.app'), 
