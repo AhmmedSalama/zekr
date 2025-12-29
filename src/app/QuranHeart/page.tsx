@@ -1,8 +1,6 @@
 import QuranHeartTracker from "../components/QuranHeartTracker"
 import type { Metadata } from "next"
 
-import { Metadata } from 'next'
-
 export const metadata: Metadata = {
   title: "متابعة ختم القرآن الكريم - القلب القرآني | ذِكْر",
   description:
