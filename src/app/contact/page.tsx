@@ -14,17 +14,21 @@ export default function Contact() {
   const [submitted, setSubmitted] = useState(false)
   const [error, setError] = useState('')
 
-  const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    })
+  // تحديث البيانات مع تحديد الأنواع لمنع خطأ الـ Build
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }))
   }
 
-  const handleSubmit = async (e) => {
+  // معالجة الإرسال مع تحديد نوع الحدث
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     setLoading(true)
     setError('')
+
     try {
       const response = await fetch('/api/contact', {
         method: 'POST',
@@ -38,14 +42,7 @@ export default function Contact() {
 
       if (response.ok) {
         setSubmitted(true)
-        setFormData({
-          name: '',
-          email: '',
-          subject: '',
-          message: ''
-        })
-        
-        // Hide success message after 5 seconds
+        setFormData({ name: '', email: '', subject: '', message: '' })
         setTimeout(() => setSubmitted(false), 5000)
       } else {
         setError(data.message || 'حدث خطأ أثناء الإرسال. حاول مرة أخرى.')
@@ -81,10 +78,7 @@ export default function Contact() {
               </div>
               <div>
                 <h3 className="text-[#FFFEEE] font-bold text-lg mb-2">البريد الإلكتروني</h3>
-                <a 
-                  href="mailto:info@zekr.com" 
-                  className="text-[#FAFAFAB2] hover:text-[#E7D7A0] transition-colors"
-                >
+                <a href="mailto:info@zekr.com" className="text-[#FAFAFAB2] hover:text-[#E7D7A0] transition-colors">
                   info@zekr.com
                 </a>
               </div>
@@ -99,10 +93,7 @@ export default function Contact() {
               </div>
               <div>
                 <h3 className="text-[#FFFEEE] font-bold text-lg mb-2">رقم الهاتف</h3>
-                <a 
-                  href="tel:+201234567890" 
-                  className="text-[#FAFAFAB2] hover:text-[#E7D7A0] transition-colors"
-                >
+                <a href="tel:+201234567890" className="text-[#FAFAFAB2] hover:text-[#E7D7A0] transition-colors">
                   +20 123 456 7890
                 </a>
               </div>
@@ -117,9 +108,7 @@ export default function Contact() {
               </div>
               <div>
                 <h3 className="text-[#FFFEEE] font-bold text-lg mb-2">العنوان</h3>
-                <p className="text-[#FAFAFAB2]">
-                  القاهرة، مصر
-                </p>
+                <p className="text-[#FAFAFAB2]">القاهرة، مصر</p>
               </div>
             </div>
           </div>
@@ -128,25 +117,13 @@ export default function Contact() {
           <div className="bg-[#092147]/60 backdrop-blur-sm border border-[#E7D7A0]/20 rounded-2xl p-6">
             <h3 className="text-[#FFFEEE] font-bold text-lg mb-4">تابعنا على</h3>
             <div className="flex gap-4">
-              <a 
-                href="#" 
-                className="w-10 h-10 bg-[#E7D7A0]/10 rounded-lg flex items-center justify-center hover:bg-[#E7D7A0]/20 transition-colors"
-                aria-label="Facebook"
-              >
+              <a href="#" className="w-10 h-10 bg-[#E7D7A0]/10 rounded-lg flex items-center justify-center hover:bg-[#E7D7A0]/20 transition-colors" aria-label="Facebook">
                 <Facebook className="w-5 h-5 text-[#E7D7A0]" />
               </a>
-              <a 
-                href="#" 
-                className="w-10 h-10 bg-[#E7D7A0]/10 rounded-lg flex items-center justify-center hover:bg-[#E7D7A0]/20 transition-colors"
-                aria-label="Twitter"
-              >
+              <a href="#" className="w-10 h-10 bg-[#E7D7A0]/10 rounded-lg flex items-center justify-center hover:bg-[#E7D7A0]/20 transition-colors" aria-label="Twitter">
                 <Twitter className="w-5 h-5 text-[#E7D7A0]" />
               </a>
-              <a 
-                href="#" 
-                className="w-10 h-10 bg-[#E7D7A0]/10 rounded-lg flex items-center justify-center hover:bg-[#E7D7A0]/20 transition-colors"
-                aria-label="Instagram"
-              >
+              <a href="#" className="w-10 h-10 bg-[#E7D7A0]/10 rounded-lg flex items-center justify-center hover:bg-[#E7D7A0]/20 transition-colors" aria-label="Instagram">
                 <Instagram className="w-5 h-5 text-[#E7D7A0]" />
               </a>
             </div>
@@ -156,101 +133,58 @@ export default function Contact() {
         {/* Contact Form - Right Side */}
         <div className="lg:col-span-2">
           <div className="bg-[#092147]/60 backdrop-blur-sm border border-[#E7D7A0]/20 rounded-2xl p-8">
-            <h2 className="text-2xl font-bold text-[#FFFEEE] mb-6">
-              أرسل لنا رسالة
-            </h2>
+            <h2 className="text-2xl font-bold text-[#FFFEEE] mb-6">أرسل لنا رسالة</h2>
 
-            {/* Success Message */}
             {submitted && (
               <div className="mb-6 p-4 bg-green-500/10 border border-green-500/30 rounded-lg">
-                <p className="text-green-400 text-center font-medium">
-                  ✓ تم إرسال رسالتك بنجاح! سنتواصل معك قريباً
-                </p>
+                <p className="text-green-400 text-center font-medium">✓ تم إرسال رسالتك بنجاح! سنتواصل معك قريباً</p>
               </div>
             )}
 
-            {/* Error Message */}
             {error && (
               <div className="mb-6 p-4 bg-red-500/10 border border-red-500/30 rounded-lg">
-                <p className="text-red-400 text-center font-medium">
-                  ✗ {error}
-                </p>
+                <p className="text-red-400 text-center font-medium">✗ {error}</p>
               </div>
             )}
 
             <form onSubmit={handleSubmit} className="space-y-6">
-              {/* Name Field */}
+              {/* Name */}
               <div>
-                <label htmlFor="name" className="block text-[#FFFEEE] font-medium mb-2">
-                  الاسم الكامل <span className="text-red-400">*</span>
-                </label>
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  required
+                <label htmlFor="name" className="block text-[#FFFEEE] font-medium mb-2">الاسم الكامل <span className="text-red-400">*</span></label>
+                <input type="text" id="name" name="name" value={formData.name} onChange={handleChange} required
                   className="w-full px-4 py-3 bg-[#0A102A]/50 border border-[#E7D7A0]/20 rounded-lg text-[#FFFEEE] placeholder-[#FAFAFAB2]/50 focus:outline-none focus:border-[#E7D7A0] transition-colors"
                   placeholder="أدخل اسمك الكامل"
                 />
               </div>
 
-              {/* Email Field */}
+              {/* Email */}
               <div>
-                <label htmlFor="email" className="block text-[#FFFEEE] font-medium mb-2">
-                  البريد الإلكتروني <span className="text-red-400">*</span>
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  required
+                <label htmlFor="email" className="block text-[#FFFEEE] font-medium mb-2">البريد الإلكتروني <span className="text-red-400">*</span></label>
+                <input type="email" id="email" name="email" value={formData.email} onChange={handleChange} required
                   className="w-full px-4 py-3 bg-[#0A102A]/50 border border-[#E7D7A0]/20 rounded-lg text-[#FFFEEE] placeholder-[#FAFAFAB2]/50 focus:outline-none focus:border-[#E7D7A0] transition-colors"
                   placeholder="example@email.com"
                 />
               </div>
 
-              {/* Subject Field */}
+              {/* Subject */}
               <div>
-                <label htmlFor="subject" className="block text-[#FFFEEE] font-medium mb-2">
-                  الموضوع <span className="text-red-400">*</span>
-                </label>
-                <input
-                  type="text"
-                  id="subject"
-                  name="subject"
-                  value={formData.subject}
-                  onChange={handleChange}
-                  required
+                <label htmlFor="subject" className="block text-[#FFFEEE] font-medium mb-2">الموضوع <span className="text-red-400">*</span></label>
+                <input type="text" id="subject" name="subject" value={formData.subject} onChange={handleChange} required
                   className="w-full px-4 py-3 bg-[#0A102A]/50 border border-[#E7D7A0]/20 rounded-lg text-[#FFFEEE] placeholder-[#FAFAFAB2]/50 focus:outline-none focus:border-[#E7D7A0] transition-colors"
                   placeholder="ما هو موضوع رسالتك؟"
                 />
               </div>
 
-              {/* Message Field */}
+              {/* Message */}
               <div>
-                <label htmlFor="message" className="block text-[#FFFEEE] font-medium mb-2">
-                  الرسالة <span className="text-red-400">*</span>
-                </label>
-                <textarea
-                  id="message"
-                  name="message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  required
-                  rows={6}
+                <label htmlFor="message" className="block text-[#FFFEEE] font-medium mb-2">الرسالة <span className="text-red-400">*</span></label>
+                <textarea id="message" name="message" value={formData.message} onChange={handleChange} required rows={6}
                   className="w-full px-4 py-3 bg-[#0A102A]/50 border border-[#E7D7A0]/20 rounded-lg text-[#FFFEEE] placeholder-[#FAFAFAB2]/50 focus:outline-none focus:border-[#E7D7A0] transition-colors resize-none"
                   placeholder="اكتب رسالتك هنا..."
                 />
               </div>
 
-              {/* Submit Button */}
-              <button
-                type="submit"
-                disabled={loading}
+              <button type="submit" disabled={loading}
                 className="w-full bg-[#E7D7A0] hover:bg-[#d4bc7a] text-[#0A102A] font-bold py-4 px-6 rounded-lg transition-all duration-300 flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 {loading ? (
