@@ -1,7 +1,5 @@
 import type { Metadata } from "next";
 
-import { Metadata } from 'next'
-
 export const metadata: Metadata = {
   metadataBase: new URL('https://zekr-beta.vercel.app'), // استبدله برابط موقعك النهائي لاحقاً
   title: {
